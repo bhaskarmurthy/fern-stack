@@ -14,15 +14,15 @@ jobs:
         working-directory: web
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7
-      - run: pnpm install && pnpm run build
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: "pnpm"
           cache-dependency-path: web/pnpm-lock.yaml
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - run: pnpm install && pnpm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
