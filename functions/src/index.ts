@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import * as functions from "firebase-functions";
 
 // // Start writing functions
